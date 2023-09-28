@@ -38,7 +38,7 @@ export const Real = ({selectedIcon, Title, HeaderBG, bodyBG, HeaderColor, Body, 
   return (
  
         <div className={`h-full p-2 mb-2 w-1/2 flex flex-col ${gapY ? `gap-y-${gapY}` : 'gap-y-2'}`}>
-      <div className={`${roundedValue?roundedValue:''} cursor-pointer flex justify-between items-center`}
+      <div className={`${roundedValue?roundedValue:''} cursor-pointer break-all flex justify-between items-center`}
       style={{
         backgroundColor: isActive && HeaderBG || 'transparent',
         transition: 'background-color 0.3s ease-in-out',
