@@ -67,7 +67,7 @@ export const Real = ({selectedIcon, Title, HeaderBG, bodyBG, HeaderColor, Body, 
 
 </div>
     <div
-      className={`p-2 ${
+      className={`p-2 break-all ${
         isActive ? "block" : "hidden"
           }`}
           style={{
