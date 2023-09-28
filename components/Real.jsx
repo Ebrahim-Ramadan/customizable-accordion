@@ -1,7 +1,6 @@
 'use client'
 
 import React from 'react'
-import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
@@ -39,22 +38,23 @@ export const Real = ({selectedIcon, Title, HeaderBG, bodyBG, HeaderColor, Body, 
   return (
  
         <div className={`h-full p-2 mb-2 w-1/2 flex flex-col gap-y-${gapY?gapY:1}`}>
-      <div className={`${roundedValue?roundedValue:''} flex justify-between items-center`}
+      <div className={`${roundedValue?roundedValue:''} cursor-pointer flex justify-between items-center`}
       style={{
         backgroundColor: isActive && HeaderBG || 'transparent',
         transition: 'background-color 0.3s ease-in-out',
-      }}>
+        }}
+        onClick={() => setIsActive(!isActive)}>
 
         <button
           className='w-full text-left p-2 '
           style={{
             color:HeaderColor ? HeaderColor : 'white'
           }}
-      onClick={()=> setIsActive(!isActive)}
     >
       {Title?Title:'title goes here'}
           </button>
-          <FontAwesomeIcon icon={selectedIcon?selectedIcon:faArrowUp} className={`p-2 transition-transform duration-200 ease-in-out  ${
+        <FontAwesomeIcon onClick={() => setIsActive(!isActive)}
+          icon={selectedIcon ? selectedIcon : faArrowUp} className={` p-2 transition-transform duration-200 ease-in-out  ${
           isActive ?
           (
             selectedIcon?.iconName == 'plus' && 'rotate-[-45deg]' || selectedIcon?.iconName == 'arrows-up-down' &&
