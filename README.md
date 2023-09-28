@@ -1,1 +1,1 @@
-### {customizable-accordion](https://customizable-accordion.vercel.app/)
+### [customizable-accordion](https://customizable-accordion.vercel.app/)
