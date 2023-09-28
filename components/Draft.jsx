@@ -63,7 +63,7 @@ export const Draft = () => {
             onChange={handleInputChange}
           />
         </div>
-        <div className='rounded-lg border border-gray-500 flex flex-row gap-2 p-2 hover:[&>*]:bg-gray-600 [&>*]:p-2 [&>*]:transition-all [&>*]:duration-300 [&>*]:ease-in-out'>
+        <div className='rounded-xl border-2 border-gray-500 flex flex-row gap-2 p-2 hover:[&>*]:bg-gray-600 [&>*]:p-2 [&>*]:transition-all [&>*]:duration-300 [&>*]:ease-in-out'>
           {[
             faArrowUp,
             faSortUp,
