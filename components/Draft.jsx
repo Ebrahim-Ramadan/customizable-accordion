@@ -10,6 +10,7 @@ import {
   faPlus,
   faSquareCaretUp,
 } from '@fortawesome/free-solid-svg-icons';
+import {Checkbox} from "@nextui-org/react";
 import { Real } from './Real';
 
 export const Draft = () => {
@@ -22,7 +23,7 @@ export const Draft = () => {
     accordionRounded: '',
     HeaderColor: '',
     BodyColor: '',
-    gapY:''
+    gapY: ''
   });
 
   const { selectedIcon, Title, Body, HeaderBG, bodyBG, HeaderColor, BodyColor, accordionRounded, gapY } = state;
@@ -42,6 +43,22 @@ export const Draft = () => {
     }));
   };
 
+  const [Checked, setChecked] = useState({
+    Capitalized: false,
+    semibold: false,
+    bold: false,
+  });
+  const handleCheckBoxes = (name) => {
+    setChecked((prevState) => ({
+      ...prevState,
+      [name]: !prevState[name],
+    }));
+  };
+  const CheckBoxesMap = [
+    {state: 'Capitalized', Display:'Capitalized'},
+    {state: 'semibold', Display:'semi-bold'},
+    {state: 'bold', Display:'bold'},
+  ]
   return (
     <div className='flex min-h-screen flex-row gap-x-2'>
       <div className='w-1/2 p-4 flex flex-col gap-y-4'>
@@ -139,6 +156,12 @@ export const Draft = () => {
             onChange={handleInputChange}
           />
         </div>
+        <div className='flex flex-row gap-x-2'>
+          {CheckBoxesMap?.map((checkBox)=>(
+            <Checkbox key={checkBox.Display} size="sm" className='[&>*]:text-white' color="warning" isSelected={Checked[checkBox.state]} onValueChange={()=>handleCheckBoxes(checkBox.state)}>{checkBox.Display}</Checkbox>
+          ))}
+        </div>
+        {/* notice onValueChange={()=>handleCheckBoxes('bold')} is called as callback func to be executed only onvaluechange, if we do thsi like: onValueChange={handleCheckBoxes('bold')} that would cause too muhc re-renders as infinite loop (react sucks) */}
       </div>
 
       <Real
