@@ -1,5 +1,5 @@
 ### visit [customizable-accordion](https://customizable-accordion.vercel.app/)
-##### you can customiza your accordion with some basic UI and functionality
+##### you can customiza your accordion with UI and functionalities
 <br>
 ##### build with nextjs and tailwind
 <br>
