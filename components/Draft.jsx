@@ -81,7 +81,7 @@ export const Draft = () => {
             onChange={handleInputChange}
           />
         </div>
-        <div className='rounded-xl border-2 border-gray-500 flex flex-row gap-2 p-2 hover:[&>*]:bg-gray-600 [&>*]:p-2 [&>*]:transition-all [&>*]:duration-300 [&>*]:ease-in-out'>
+        <div className='rounded-xl border-2 border-gray-500 grid md:grid-cols-12 grid-cols-2 p-2 hover:[&>*]:bg-gray-600 [&>*]:p-2 [&>*]:transition-all [&>*]:duration-300 [&>*]:rounded-lg [&>*]:ease-in-out'>
           {[
             faArrowUp,
             faSortUp,
@@ -157,7 +157,7 @@ export const Draft = () => {
             onChange={handleInputChange}
           />
         </div>
-        <div className='flex flex-row gap-x-2'>
+        <div className='flex md:flex-row flex-col gap-x-2'>
           <span>Summary?</span>
           {CheckBoxesMap?.map((checkBox)=>(
             <Checkbox key={checkBox.Display} size="sm" className='[&>*]:text-white' color="warning" isSelected={Checked[checkBox.state]} onValueChange={()=>handleCheckBoxes(checkBox.state)}>{checkBox.Display}</Checkbox>
