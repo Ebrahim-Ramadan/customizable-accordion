@@ -10,11 +10,14 @@ import {
   faPlus,
   faSquareCaretUp,
 } from '@fortawesome/free-solid-svg-icons';
-import {Checkbox} from "@nextui-org/react";
+import { Checkbox } from "@nextui-org/react";
+import {RadioGroup, Radio} from "@nextui-org/radio";
 import { Real } from './Real';
-import { ComingSoon } from '@/temporary/ComingSoon';
 
 export const Draft = () => {
+
+  const [RadioWeight, setRadioWeight] = useState("");
+
   const [state, setState] = useState({
     selectedIcon: '',
     Title: '',
@@ -57,8 +60,17 @@ export const Draft = () => {
   };
   const CheckBoxesMap = [
     {state: 'Capitalized', Display:'Capitalized'},
-    {state: 'semibold', Display:'semi-bold'},
+  ]
+  const RadiosMap = [
+    {state: 'thin', Display:'thin'},
+    {state: 'extralight', Display:'extralight'},
+    {state: 'light', Display:'light'},
+    {state: 'normal', Display:'normal'},
+    {state: 'medium', Display:'medium'},
+    {state: 'semi-bold', Display:'semi-bold'},
     {state: 'bold', Display:'bold'},
+    {state: 'extrabold', Display:'extrabold'},
+    {state: 'black', Display:'black'},
   ]
   return (
     <div className='flex min-h-screen flex-row gap-x-2'>
@@ -162,9 +174,21 @@ export const Draft = () => {
           {CheckBoxesMap?.map((checkBox)=>(
             <Checkbox key={checkBox.Display} size="sm" className='[&>*]:text-white' color="warning" isSelected={Checked[checkBox.state]} onValueChange={()=>handleCheckBoxes(checkBox.state)}>{checkBox.Display}</Checkbox>
           ))}
+            {/* notice onValueChange={()=>handleCheckBoxes('bold')} is called as callback func to be executed only onvaluechange, if we do thsi like: onValueChange={handleCheckBoxes('bold')} that would cause too muhc re-renders as infinite loop (react sucks) */}
         </div>
-        {/* notice onValueChange={()=>handleCheckBoxes('bold')} is called as callback func to be executed only onvaluechange, if we do thsi like: onValueChange={handleCheckBoxes('bold')} that would cause too muhc re-renders as infinite loop (react sucks) */}
-    <ComingSoon/>
+        <RadioGroup
+          className='[&>*]:flex [&>*]:flex-row '
+          label="Summary fontWeight"
+        value={RadioWeight}
+        onValueChange={setRadioWeight}
+    >
+      {RadiosMap?.map((radio)=>(
+          <Radio value={radio.state} key={radio.state} color="warning" >{radio.Display}</Radio>
+
+      ))}
+    </RadioGroup>
+    <p className="text-default-500 text-small">RadioWeight: {RadioWeight}</p>
+    
 
       </div>
 
@@ -179,6 +203,7 @@ export const Draft = () => {
         BodyColor={BodyColor}
         gapY={gapY}
         SummaryChecks={Checked}
+        RadioWeight={RadioWeight}
       />
 
     </div>

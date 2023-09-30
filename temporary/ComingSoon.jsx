@@ -3,7 +3,7 @@ export const ComingSoon = () => {
       <div style={{
       color: '#D1D1D1',
       fontWeight: 'bold',
-      marginTop: '5rem',
+      marginTop: '20rem',
         fontSize:'0.8rem'
       }}>code generation yet to come folks...
       <p>Iam <a

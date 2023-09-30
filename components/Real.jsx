@@ -3,10 +3,11 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import { ComingSoon } from '@/temporary/ComingSoon';
 
-export const Real = ({selectedIcon, Title, summaryBG, bodyBG, summaryColor, Body, BodyColor, accordionRounded, gapY, SummaryChecks}) => {
+export const Real = ({selectedIcon, Title, summaryBG, bodyBG, summaryColor, Body, BodyColor, accordionRounded, gapY, SummaryChecks, RadioWeight}) => {
   const [isActive, setIsActive] = React.useState(false);
-  const { Capitalized, bold, semibold } = SummaryChecks
+  const { Capitalized } = SummaryChecks
   let roundedValue = 'rounded-none';
   if (accordionRounded > '000000') {
     roundedValue = 'rounded-full'
@@ -46,7 +47,7 @@ export const Real = ({selectedIcon, Title, summaryBG, bodyBG, summaryColor, Body
         onClick={() => setIsActive(!isActive)}>
 
         <button
-          className={`w-full ${bold&&'font-bold'} ${semibold&&'font-semibold'} text-left p-2 ${Capitalized&&'capitalize'}`}
+          className={`w-full ${RadioWeight ? `font-${RadioWeight}` : 'font-normal'} text-left p-2 ${Capitalized&&'capitalize'}`}
           style={{
             color:summaryColor ? summaryColor : 'white'
           }}
@@ -78,6 +79,7 @@ export const Real = ({selectedIcon, Title, summaryBG, bodyBG, summaryColor, Body
     >
       {Body?Body:'some content goes here'}
       </div>
+      <ComingSoon/>
 </div>
       
   )
