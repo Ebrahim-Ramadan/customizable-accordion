@@ -12,6 +12,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import {Checkbox} from "@nextui-org/react";
 import { Real } from './Real';
+import { ComingSoon } from '@/temporary/ComingSoon';
 
 export const Draft = () => {
   const [state, setState] = useState({
@@ -163,6 +164,8 @@ export const Draft = () => {
           ))}
         </div>
         {/* notice onValueChange={()=>handleCheckBoxes('bold')} is called as callback func to be executed only onvaluechange, if we do thsi like: onValueChange={handleCheckBoxes('bold')} that would cause too muhc re-renders as infinite loop (react sucks) */}
+    <ComingSoon/>
+
       </div>
 
       <Real
@@ -177,6 +180,7 @@ export const Draft = () => {
         gapY={gapY}
         SummaryChecks={Checked}
       />
+
     </div>
   );
 };

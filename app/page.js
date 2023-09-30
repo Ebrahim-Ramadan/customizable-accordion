@@ -8,7 +8,7 @@ export default function Home() {
     
       <NextUIProvider>
       <Header />
-      <Draft/>
+      <Draft />
        </NextUIProvider>
    
 
