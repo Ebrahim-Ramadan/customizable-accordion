@@ -18,15 +18,15 @@ export const Draft = () => {
     selectedIcon: '',
     Title: '',
     Body: '',
-    HeaderBG: '',
+    summaryBG: '',
     bodyBG: '',
     accordionRounded: '',
-    HeaderColor: '',
+    summaryColor: '',
     BodyColor: '',
     gapY: ''
   });
 
-  const { selectedIcon, Title, Body, HeaderBG, bodyBG, HeaderColor, BodyColor, accordionRounded, gapY } = state;
+  const { selectedIcon, Title, Body, summaryBG, bodyBG, summaryColor, BodyColor, accordionRounded, gapY } = state;
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -66,7 +66,7 @@ export const Draft = () => {
           <label>Title?</label>
           <input
             name='Title'
-            placeholder='Write an accordion header'
+            placeholder='Write an accordion summary'
             className='bg-black outline-none border-none w-full'
             onChange={handleInputChange}
           />
@@ -99,11 +99,11 @@ export const Draft = () => {
         {selectedIcon && <p>Selected Icon: {selectedIcon.iconName || 'No Icon Name'}</p>}
 
         <div className='flex flex-row gap-x-2'>
-          <label>Header BG on Open?</label>
+          <label>summary BG on Open?</label>
           <input
-            name='HeaderBG'
+            name='summaryBG'
             type='color'
-            value={HeaderBG}
+            value={summaryBG}
             onChange={handleInputChange}
           />
         </div>
@@ -117,11 +117,11 @@ export const Draft = () => {
           />
         </div>
         <div className='flex flex-row gap-x-2'>
-          <label>Header Color?</label>
+          <label>summary Color?</label>
           <input
-            name='HeaderColor'
+            name='summaryColor'
             type='color'
-            value={HeaderColor}
+            value={summaryColor}
             onChange={handleInputChange}
           />
         </div>
@@ -157,6 +157,7 @@ export const Draft = () => {
           />
         </div>
         <div className='flex flex-row gap-x-2'>
+          <span>Summary?</span>
           {CheckBoxesMap?.map((checkBox)=>(
             <Checkbox key={checkBox.Display} size="sm" className='[&>*]:text-white' color="warning" isSelected={Checked[checkBox.state]} onValueChange={()=>handleCheckBoxes(checkBox.state)}>{checkBox.Display}</Checkbox>
           ))}
@@ -167,13 +168,14 @@ export const Draft = () => {
       <Real
         selectedIcon={selectedIcon ? selectedIcon : null}
         Title={Title}
-        HeaderBG={HeaderBG}
+        summaryBG={summaryBG}
         bodyBG={bodyBG}
         Body={Body}
         accordionRounded={accordionRounded}
-        HeaderColor={HeaderColor}
+        summaryColor={summaryColor}
         BodyColor={BodyColor}
         gapY={gapY}
+        SummaryChecks={Checked}
       />
     </div>
   );

@@ -4,9 +4,9 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
-export const Real = ({selectedIcon, Title, HeaderBG, bodyBG, HeaderColor, Body, BodyColor, accordionRounded, gapY}) => {
+export const Real = ({selectedIcon, Title, summaryBG, bodyBG, summaryColor, Body, BodyColor, accordionRounded, gapY, SummaryChecks}) => {
   const [isActive, setIsActive] = React.useState(false);
-
+  const { Capitalized, bold, semibold } = SummaryChecks
   let roundedValue = 'rounded-none';
   if (accordionRounded > '000000') {
     roundedValue = 'rounded-full'
@@ -40,15 +40,15 @@ export const Real = ({selectedIcon, Title, HeaderBG, bodyBG, HeaderColor, Body, 
         <div className={`h-full p-2 mb-2 w-1/2 flex flex-col ${gapY ? `gap-y-${gapY}` : 'gap-y-2'}`}>
       <div className={`${roundedValue?roundedValue:''} cursor-pointer break-all flex justify-between items-center`}
       style={{
-        backgroundColor: isActive && HeaderBG || 'transparent',
+        backgroundColor: isActive && summaryBG || 'transparent',
         transition: 'background-color 0.3s ease-in-out',
         }}
         onClick={() => setIsActive(!isActive)}>
 
         <button
-          className='w-full text-left p-2 '
+          className={`w-full ${bold&&'font-bold'} ${semibold&&'font-semibold'} text-left p-2 ${Capitalized&&'capitalize'}`}
           style={{
-            color:HeaderColor ? HeaderColor : 'white'
+            color:summaryColor ? summaryColor : 'white'
           }}
     >
       {Title?Title:'title goes here'}
